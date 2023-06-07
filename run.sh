@@ -11,7 +11,7 @@ eval "$COMMAND"
 sleep 1
 
 sudo qemu-system-mipsel -machine malta -cpu 4KEc \
--m 1G -drive file=image.qcow2 -device e1000,netdev=net \
--netdev user,id=net,hostfwd=tcp::2222-:22 -kernel kernel \
--initrd initrd -nographic -append "root=LABEL=rootfs console=ttyS0"
+-m 1G -drive file=/local/repository/qemu-images/image.qcow2 -device e1000,netdev=net \
+-netdev user,id=net,hostfwd=tcp::2222-:22 -kernel /local/repository/qemu-images/kernel \
+-initrd /local/repository/qemu-images/initrd -nographic -append "root=LABEL=rootfs console=ttyS0"
 
